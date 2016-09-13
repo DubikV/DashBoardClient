@@ -25,7 +25,6 @@ public class Module_ReadWrite_Data {
         SharedPreferences sharedPref = context.getSharedPreferences("SettingsApp", context.MODE_PRIVATE);
 
         settingConnect.setAdressServer(sharedPref.getString("SettingConnect_adressServer", null));
-        settingConnect.setAvtoDownload(Boolean.valueOf(sharedPref.getString("SettingConnect_avtDownloadData", "false")));
         settingsUser.setUserLogin(sharedPref.getString("SettingUser_login", null));
         settingsUser.setUserPassword(sharedPref.getString("SettingUser_password", null));
 
@@ -39,7 +38,6 @@ public class Module_ReadWrite_Data {
         editor.putString("SettingUser_login", settingsUser.getUserLogin());
         editor.putString("SettingUser_password", settingsUser.getUserPassword());
         editor.putString("SettingConnect_adressServer", settingConnect.getAdressServer());
-        editor.putString("SettingConnect_avtDownloadData", String.valueOf(settingConnect.isAvtoDownload()));
         editor.commit();
 
     }

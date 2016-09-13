@@ -6,5 +6,5 @@
         android:icon="@drawable/ic_menu_download_data"
         android:title="@string/nav_loaddata_ua"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>

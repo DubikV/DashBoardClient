@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_salesUgk"
+            android:id="@+id/nav_comparion_12_3"
             android:icon="@drawable/ic_menu_graph"
-            android:title="@string/nav_salesUgk_ua" />
+            android:title="@string/nav_comparion_12_3_ua" />
         <item
-            android:id="@+id/nav_salesMoney"
+            android:id="@+id/nav_comparion_3_1"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/nav_salesMoney_ua" />
+            android:title="@string/nav_comparion_3_1_ua" />
         <item
-            android:id="@+id/nav_margin"
+            android:id="@+id/nav_comparion_1_exp"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/nav_margin_ua" />
+            android:title="@string/nav_comparion_1_exp_ua" />
         <item
-            android:id="@+id/nav_stocks"
+            android:id="@+id/nav_comparion_12_exp"
             android:icon="@drawable/ic_menu_share"
-            android:title="@string/nav_stocks_ua" />
+            android:title="@string/nav_comparion_12_exp_ua"/>
+        <item
+            android:id="@+id/nav_comparion_1_exp_dec"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/nav_comparion_1_exp_dec_ua" />
     </group>
 
     <item android:title="@string/nav_service_ua">

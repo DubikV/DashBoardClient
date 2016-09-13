@@ -35,4 +35,23 @@ public class ConstantsGlobal {
     public static final String STOCKS_GET_NAME = "stocksGet";
     public static final String MARGIN_GET_NAME = "margin";
 
+    //===To Data Base
+    public static final String DATABASE_NAME = "dataB.db";
+    public static final String TABLE_NAME = "dataTable";
+    public static final String TABLE_COLUMN_ID = "id";
+    public static final String TABLE_COLUMN_BN_NAME = "bnName";
+    public static final String TABLE_COLUMN_BN_GUID = "bnGuid";
+    public static final String TABLE_COLUMN_BRANCH_NAME = "branchName";
+    public static final String TABLE_COLUMN_BRANCH_GUID = "branchGuid";
+    public static final String TABLE_COLUMN_MANAGER_NAME = "managerName";
+    public static final String TABLE_COLUMN_MANAGER_GUID = "managerGuid";
+    public static final String TABLE_COLUMN_TYPE_DATA = "typeData";
+    public static final String TABLE_COLUMN_PERIOD = "period";
+    public static final String TABLE_COLUMN_DATA = "data";
+
+    //===Type Data
+    public static final String TYPE_DATA_BN_DATA = "bnData";
+    public static final String TYPE_DATA_BRANCH_DATA = "branchData";
+    public static final String TYPE_DATA_MANAGER_DATA = "managerData";
+
 }

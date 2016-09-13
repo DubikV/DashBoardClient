@@ -1,6 +1,5 @@
 package ua.com.avatlantik.dubyk.i.dashboardclient.fragment;
 
-import android.animation.ValueAnimator;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -11,7 +10,6 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -45,7 +43,7 @@ import ua.com.avatlantik.dubyk.i.dashboardclient.R;
  * Created by i.dubyk on 24.06.2016.
  */
 public class ComboGraphFragment extends Fragment{
-    private static  final int LAYOUT = R.layout.fragment_sales_graph;
+    private static  final int LAYOUT = R.layout.fragment_graph;
     private View view;
     private CombinedChart mChart;
     private final int itemcount = 12;
@@ -108,55 +106,55 @@ public class ComboGraphFragment extends Fragment{
 
     private void startCountAnimation() {
 
-        final TextView textView_header_graph = (TextView) view.findViewById(R.id.textView_header_graph);
-
-        final ValueAnimator animatorHeaderGraph4 = new ValueAnimator();
-        animatorHeaderGraph4.setObjectValues(0,87);
-        animatorHeaderGraph4.setDuration(ConstantsGlobal.SMALL_TIME);
-        animatorHeaderGraph4.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+"91"+"%/"+"115"+"%"+"   "+"69"+"/"+(int) animation.getAnimatedValue());
-
-            }
-        });
-
-        final ValueAnimator animatorHeaderGraph3 = new ValueAnimator();
-        animatorHeaderGraph3.setObjectValues(0,69);
-        animatorHeaderGraph3.setDuration(ConstantsGlobal.SMALL_TIME);
-        animatorHeaderGraph3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+"91"+"%/"+"115"+"%"+"   "+(int) animation.getAnimatedValue()+"/0");
-                if (animation.getAnimatedValue().toString().equals("69")) {
-                    animatorHeaderGraph4.start();
-                }
-            }
-        });
-
-        final ValueAnimator animatorHeaderGraph2 = new ValueAnimator();
-        animatorHeaderGraph2.setObjectValues(0,115);
-        animatorHeaderGraph2.setDuration(ConstantsGlobal.SMALL_TIME);
-        animatorHeaderGraph2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+"91"+"%/"+(int) animation.getAnimatedValue()+"%"+"   "+"0/0");
-                if (animation.getAnimatedValue().toString().equals("115")) {
-                    animatorHeaderGraph3.start();
-                }
-            }
-        });
-
-        ValueAnimator animatorHeaderGraph1 = new ValueAnimator();
-        animatorHeaderGraph1.setObjectValues(0,91);
-        animatorHeaderGraph1.setDuration(ConstantsGlobal.SMALL_TIME);
-        animatorHeaderGraph1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+(int) animation.getAnimatedValue()+"%/"+"0%"+"   "+"0/0");
-                if (animation.getAnimatedValue().toString().equals("91")) {
-                    animatorHeaderGraph2.start();
-                }
-            }
-        });
-
-        animatorHeaderGraph1.start();
+//        final TextView textView_header_graph = (TextView) view.findViewById(R.id.textView_header_graph);
+//
+//        final ValueAnimator animatorHeaderGraph4 = new ValueAnimator();
+//        animatorHeaderGraph4.setObjectValues(0,87);
+//        animatorHeaderGraph4.setDuration(ConstantsGlobal.SMALL_TIME);
+//        animatorHeaderGraph4.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+"91"+"%/"+"115"+"%"+"   "+"69"+"/"+(int) animation.getAnimatedValue());
+//
+//            }
+//        });
+//
+//        final ValueAnimator animatorHeaderGraph3 = new ValueAnimator();
+//        animatorHeaderGraph3.setObjectValues(0,69);
+//        animatorHeaderGraph3.setDuration(ConstantsGlobal.SMALL_TIME);
+//        animatorHeaderGraph3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+"91"+"%/"+"115"+"%"+"   "+(int) animation.getAnimatedValue()+"/0");
+//                if (animation.getAnimatedValue().toString().equals("69")) {
+//                    animatorHeaderGraph4.start();
+//                }
+//            }
+//        });
+//
+//        final ValueAnimator animatorHeaderGraph2 = new ValueAnimator();
+//        animatorHeaderGraph2.setObjectValues(0,115);
+//        animatorHeaderGraph2.setDuration(ConstantsGlobal.SMALL_TIME);
+//        animatorHeaderGraph2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+"91"+"%/"+(int) animation.getAnimatedValue()+"%"+"   "+"0/0");
+//                if (animation.getAnimatedValue().toString().equals("115")) {
+//                    animatorHeaderGraph3.start();
+//                }
+//            }
+//        });
+//
+//        ValueAnimator animatorHeaderGraph1 = new ValueAnimator();
+//        animatorHeaderGraph1.setObjectValues(0,91);
+//        animatorHeaderGraph1.setDuration(ConstantsGlobal.SMALL_TIME);
+//        animatorHeaderGraph1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                textView_header_graph.setText("" + getString(R.string.nav_salesUgk_ua) + "   "+(int) animation.getAnimatedValue()+"%/"+"0%"+"   "+"0/0");
+//                if (animation.getAnimatedValue().toString().equals("91")) {
+//                    animatorHeaderGraph2.start();
+//                }
+//            }
+//        });
+//
+//        animatorHeaderGraph1.start();
 
     }
 

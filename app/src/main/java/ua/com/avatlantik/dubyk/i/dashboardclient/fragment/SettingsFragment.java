@@ -3,10 +3,8 @@ package ua.com.avatlantik.dubyk.i.dashboardclient.fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.MainActivity;
@@ -30,7 +27,6 @@ public class SettingsFragment extends Fragment{
     private View view;
     private Button buttonSave;
     private EditText editT_login, editT_password, editT_server;
-    private Switch avtDown_switch;
     private SettingsUser settingsUser;
     private SettingConnect settingConnect;
 
@@ -63,7 +59,6 @@ public class SettingsFragment extends Fragment{
         editT_login.requestFocus();
         editT_password = (EditText) view.findViewById(R.id.editText_password);
         editT_server = (EditText) view.findViewById(R.id.editText_adressServer);
-        avtDown_switch = (Switch) view.findViewById(R.id.avtDown_switch);
         buttonSave = (Button) view.findViewById(R.id.btn_enter);
 
         editT_login.setOnKeyListener(new View.OnKeyListener() {
@@ -121,7 +116,6 @@ public class SettingsFragment extends Fragment{
         editT_login.setText(settingsUser.getUserLogin());
         editT_password.setText(settingsUser.getUserPassword());
         editT_server.setText(settingConnect.getAdressServer());
-        avtDown_switch.setChecked(settingConnect.isAvtoDownload());
     }
 
 
@@ -130,7 +124,6 @@ public class SettingsFragment extends Fragment{
         settingsUser.setUserLogin(editT_login.getText().toString());
         settingsUser.setUserPassword(editT_password.getText().toString());
         settingConnect.setAdressServer(editT_server.getText().toString());
-        settingConnect.setAvtoDownload(avtDown_switch.isChecked());
 
         TextView text_nav_heared_login = (TextView) view.getRootView().findViewById(R.id.text_nav_heared_login);;
         text_nav_heared_login.setText(settingsUser.getUserLogin());
@@ -143,17 +136,7 @@ public class SettingsFragment extends Fragment{
         InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
 
-        if (!settingConnect.isAvtoDownload()) {
-
-            askToDowloadData();
-
-        }else {
-            Toolbar toolbar = (Toolbar) view.getRootView().findViewById(R.id.toolbar);
-            toolbar.setTitle(getString(R.string.app_name) + ": " + getString(R.string.nav_salesUgk_ua));
-
-            NavigationView navigationView = (NavigationView) view.getRootView().findViewById(R.id.nav_view);
-            navigationView.getMenu().performIdentifierAction(R.id.nav_salesUgk, 0);
-        }
+        askToDowloadData();
 
     }
 
@@ -167,7 +150,7 @@ public class SettingsFragment extends Fragment{
                 dialog.dismiss();
                 Module_GetURL module_getURL = new Module_GetURL((MainActivity) getActivity());
                 if(module_getURL.getCheckConnektion()) {
-                    ((MainActivity) getActivity()).downloadData();
+                    ((MainActivity) getActivity()).downloadFirstData();
                 }
 
             }

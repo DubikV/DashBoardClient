@@ -9,16 +9,22 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="bn_prompt">Виберіть бизнес напрямок</string>
+    <string name="period_prompt">Виберіть період</string>
+
+
     <string name="action_settings">Settings</string>
     <string name="action_settings_ua">Налаштування</string>
-    <string name="nav_salesUgk_ua">Продажі УГК</string>
-    <string name="nav_salesUgk">Sales UGK</string>
-    <string name="nav_salesMoney_ua">Продажі грн.</string>
-    <string name="nav_salesMoney">Sales Money</string>
-    <string name="nav_margin_ua">Маржа</string>
-    <string name="nav_margin">Margin</string>
-    <string name="nav_stocks_ua">Запаси</string>
-    <string name="nav_stocks">Stocks</string>
+    <string name="nav_comparion_12_3_ua">Порівняння 12S-3S</string>
+    <string name="nav_comparion_12_3">Comparison 12S-3S</string>
+    <string name="nav_comparion_3_1_ua">Порівняння 3S-1S</string>
+    <string name="nav_comparion_3_1">Comparison 3S-1S</string>
+    <string name="nav_comparion_1_exp_ua">Порівняння 1S-очік.</string>
+    <string name="nav_comparion_1_exp">Comparison 1S-exp/</string>
+    <string name="nav_comparion_12_exp_ua">Порівняння 12S-очік.</string>
+    <string name="nav_comparion_12_exp">Comparison 12S-exp/</string>
+    <string name="nav_comparion_1_exp_dec_ua">Порівняння 1S-очік. по декадам</string>
+    <string name="nav_comparion_1_exp_dec">Comparison 1S-exp. dec.</string>
     <string name="nav_communicate_ua">Зєднання</string>
     <string name="nav_communicate">Communicate</string>
     <string name="nav_loaddata_ua">Виконати загрузку</string>
@@ -101,5 +107,20 @@
 
     <string name="dowload_data_from_server">Завантаження даних з серверу...</string>
     <string name="treatment_data">Обробка даних...</string>
+
+    <string-array name="mounths">
+        <item>Січень</item>
+        <item>Лютий</item>
+        <item>Березень</item>
+        <item>Квітень</item>
+        <item>Травень</item>
+        <item>Червень</item>
+        <item>Липень</item>
+        <item>Серпень</item>
+        <item>Вересень</item>
+        <item>Жовтень</item>
+        <item>Листопад</item>
+        <item>Грудень</item>
+    </string-array>
 
 </resources>

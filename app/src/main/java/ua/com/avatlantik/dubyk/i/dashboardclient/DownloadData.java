@@ -14,14 +14,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.Constants.ConstantsGlobal;
+import ua.com.avatlantik.dubyk.i.dashboardclient.Database.DBHelper;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_GetURL;
-import ua.com.avatlantik.dubyk.i.dashboardclient.dto.Data.DataAddDTO;
-import ua.com.avatlantik.dubyk.i.dashboardclient.dto.Data.DataDTO;
-import ua.com.avatlantik.dubyk.i.dashboardclient.dto.Data.DataTableDTO;
-import ua.com.avatlantik.dubyk.i.dashboardclient.dto.DataStoreDTO;
 
 /**
  * Created by i.dubyk on 11.07.2016.
@@ -34,9 +30,9 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
     private MainActivity mainActivity;
     private ProgressDialog progressDialog;
     private String nameData;
-    private DataStoreDTO dataStoreDTO;
     private boolean openStart;
     private int idItemSelected;
+    private DBHelper dbHelper;
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -156,184 +152,35 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
   }
     private String parseDataJson(String strJson){
 
-        dataStoreDTO = DataStoreDTO.getInstance();
-
-        if (nameData.equals(ConstantsGlobal.SALES_GET_NAME)) {
-
-            return parseSalesUGK(strJson);
-
-        }else if(nameData.equals(ConstantsGlobal.SALESMONEY_GET_NAME)){
-
-            return parseSalesMoney(strJson);
-
-        }else if(nameData.equals(ConstantsGlobal.STOCKS_GET_NAME)){
-            return parseStocks(strJson);
-        }
-
-        return "";
-    }
-
-    private String parseSalesUGK(String strJson){
-
+        dbHelper = new DBHelper(mainActivity);
+        dbHelper.deleteAllData();
         String result ="";
-
         JSONArray dataJsonArray = null;
+
         try {
 
             dataJsonArray = new JSONArray(strJson);
 
-            ArrayList<DataDTO> arrayS = new ArrayList<>();
+            for (int i = 0; i < dataJsonArray.length(); i++) {
 
-            JSONObject SalesUGKObject = dataJsonArray.getJSONObject(0);
+                JSONObject dataO = dataJsonArray.getJSONObject(i);
 
-            JSONArray SalesUGKDTOarray = SalesUGKObject.getJSONArray("salesUGK");
-
-            for (int i = 0; i < SalesUGKDTOarray.length(); i++) {
-
-                JSONObject SalesUGK = SalesUGKDTOarray.getJSONObject(i);
-
-                arrayS.add(new DataDTO(SalesUGK.optString("typeData",""), SalesUGK.optInt("numberDay",0), SalesUGK.optDouble("value",0.0)));
+                dbHelper.insertData(dataO.optString(ConstantsGlobal.TABLE_COLUMN_BN_NAME,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_BN_GUID,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_MANAGER_NAME,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_MANAGER_GUID,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_TYPE_DATA,""),
+                        dataO.optInt(ConstantsGlobal.TABLE_COLUMN_PERIOD,0),
+                        dataO.optDouble(ConstantsGlobal.TABLE_COLUMN_DATA,0.0));
             }
-
-            dataStoreDTO.setSalesUGKDTO(arrayS);
-
-            ArrayList<DataTableDTO> arrayT = new ArrayList<>();
-
-            JSONObject SalesUGKTableObject = dataJsonArray.getJSONObject(1);
-
-            JSONArray SalesUGKTableDTOarray = SalesUGKTableObject.getJSONArray("salesUGKTable");
-
-            for (int i = 0; i < SalesUGKTableDTOarray.length(); i++) {
-
-                JSONObject SalesUGKTable = SalesUGKTableDTOarray.getJSONObject(i);
-
-                arrayT.add(new DataTableDTO(SalesUGKTable.optString("typeData",""), SalesUGKTable.optDouble("sumMonth",0), SalesUGKTable.optDouble("sumDay",0.0), SalesUGKTable.optDouble("delta12",0.0),SalesUGKTable.optDouble("delta3",0.0),SalesUGKTable.optDouble("delta1",0.0)));
-            }
-
-            dataStoreDTO.setSalesUGKTableDTO(arrayT);
-
-            JSONObject SalesUGKaddObject = dataJsonArray.getJSONObject(2);
-
-            JSONObject SalesUGKAddObject = SalesUGKaddObject.getJSONObject("salesUGKAdd");
-
-
-            dataStoreDTO.setSalesUGKAddDTO(new DataAddDTO(SalesUGKAddObject.optDouble("planeNorm",0.0), SalesUGKAddObject.optDouble("plane",0.0),SalesUGKAddObject.optDouble("fact",0.0),SalesUGKAddObject.optDouble("factNorm",0.0)));
 
             //result = mainActivity.getString(R.string.finish_dowload_data);
 
         } catch (JSONException e) {
             e.printStackTrace();
             result = mainActivity.getString(R.string.error_processing_data);
-        }
-
-        return result;
-    }
-
-    private String parseSalesMoney(String strJson){
-
-        String result ="";
-
-        try {
-
-            JSONArray dataJsArray = new JSONArray(strJson);
-
-            ArrayList<DataDTO> arrayS = new ArrayList<>();
-
-            JSONObject SalesMoneyObject = dataJsArray.getJSONObject(0);
-
-            JSONArray SalesMoneyDTOarray = SalesMoneyObject.getJSONArray("salesMoney");
-
-            for (int i = 0; i < SalesMoneyDTOarray.length(); i++) {
-
-                JSONObject SalesMoney = SalesMoneyDTOarray.getJSONObject(i);
-
-                arrayS.add(new DataDTO(SalesMoney.optString("typeData",""), SalesMoney.optInt("numberDay",0), SalesMoney.optDouble("value",0.0)));
-            }
-
-            dataStoreDTO.setMoneyDTO(arrayS);
-
-            ArrayList<DataTableDTO> arrayT = new ArrayList<>();
-
-            JSONObject SalesMoneyTableObject = dataJsArray.getJSONObject(1);
-
-            JSONArray moneyTableDTOarray = SalesMoneyTableObject.getJSONArray("salesMoneyTable");
-
-            for (int i = 0; i < moneyTableDTOarray.length(); i++) {
-
-                JSONObject moneyTable = moneyTableDTOarray.getJSONObject(i);
-
-                arrayT.add(new DataTableDTO(moneyTable.optString("typeData",""), moneyTable.optDouble("sumMonth",0), moneyTable.optDouble("sumDay",0.0), moneyTable.optDouble("delta12",0.0),moneyTable.optDouble("delta3",0.0),moneyTable.optDouble("delta1",0.0)));
-            }
-
-            dataStoreDTO.setMoneyTableDTO(arrayT);
-
-            JSONObject MoneyaddObject = dataJsArray.getJSONObject(2);
-
-            JSONObject MoneyAddObject = MoneyaddObject.getJSONObject("salesMoneyAdd");
-
-
-            dataStoreDTO.setMoneyAddDTO(new DataAddDTO(MoneyAddObject.optDouble("planeNorm",0.0), MoneyAddObject.optDouble("plane",0.0),MoneyAddObject.optDouble("fact",0.0),MoneyAddObject.optDouble("factNorm",0.0)));
-
-            //result = mainActivity.getString(R.string.finish_dowload_data);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return mainActivity.getString(R.string.error_processing_data);
-        }
-
-        return result;
-    }
-
-    private String parseStocks(String strJson){
-
-        String result ="";
-
-        try {
-
-            JSONArray dataJsArray = new JSONArray(strJson);
-
-            ArrayList<DataDTO> arrayS = new ArrayList<>();
-
-            JSONObject StocksObject = dataJsArray.getJSONObject(0);
-
-            JSONArray StocksDTOarray = StocksObject.getJSONArray("stocks");
-
-            for (int i = 0; i < StocksDTOarray.length(); i++) {
-
-                JSONObject stock = StocksDTOarray.getJSONObject(i);
-
-                arrayS.add(new DataDTO(stock.optString("typeData",""), stock.optInt("numberDay",0), stock.optDouble("value",0.0)));
-            }
-
-            dataStoreDTO.setStoksDTO(arrayS);
-
-            ArrayList<DataTableDTO> arrayT = new ArrayList<>();
-
-            JSONObject StocksTableObject = dataJsArray.getJSONObject(1);
-
-            JSONArray stoksTableDTOarray = StocksTableObject.getJSONArray("stocksTable");
-
-            for (int i = 0; i < stoksTableDTOarray.length(); i++) {
-
-                JSONObject moneyTable = stoksTableDTOarray.getJSONObject(i);
-
-                arrayT.add(new DataTableDTO(moneyTable.optString("typeData",""), moneyTable.optDouble("sumMonth",0), moneyTable.optDouble("sumDay",0.0), moneyTable.optDouble("delta12",0.0),moneyTable.optDouble("delta3",0.0),moneyTable.optDouble("delta1",0.0)));
-            }
-
-            dataStoreDTO.setStoksTableDTO(arrayT);
-
-            JSONObject StocksAddObject = dataJsArray.getJSONObject(2);
-
-            JSONObject stocksAddObject = StocksAddObject.getJSONObject("stocksAdd");
-
-
-            dataStoreDTO.setStoksAddDTO(new DataAddDTO(stocksAddObject.optDouble("planeNorm",0.0), stocksAddObject.optDouble("plane",0.0),stocksAddObject.optDouble("fact",0.0),stocksAddObject.optDouble("factNorm",0.0)));
-
-            //result = mainActivity.getString(R.string.finish_dowload_data);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return mainActivity.getString(R.string.error_processing_data);
         }
 
         return result;
