@@ -1,0 +1,36 @@
+<resources>
+    <dimen name="textView_numbers_1_textsize">30sp</dimen>
+    <dimen name="textView_numbers_2_1_textsize">100sp</dimen>
+    <dimen name="textView_numbers_2_2_2_textsize">50sp</dimen>
+    <dimen name="char_layout_margin">10dp</dimen>
+
+    <dimen name="linerlayout_numbers_up_marginTop">10dp</dimen>
+    <dimen name="linerlayout_numbers_up_marginRight">10dp</dimen>
+    <dimen name="linerlayout_numbers_up_marginBottom">0dp</dimen>
+    <dimen name="linerlayout_numbers_up_marginLeft">0dp</dimen>
+
+    <dimen name="linerlayout_numbers_down_marginTop">0dp</dimen>
+    <dimen name="linerlayout_numbers_down_marginRight">10dp</dimen>
+    <dimen name="linerlayout_numbers_down_marginBottom">10dp</dimen>
+    <dimen name="linerlayout_numbers_down_marginLeft">0dp</dimen>
+
+    <dimen name="textView_numbers_big_textsize">15sp</dimen>
+    <dimen name="textView_title_table_big_textsize">13sp</dimen>
+    <dimen name="textView_table_big_textsize">10sp</dimen>
+
+    //===graph=============
+    <dimen name="graph_legend_textsize">8dp</dimen>
+    <dimen name="zero_size">0dp</dimen>
+    <dimen name="axis_y_textSize">8dp</dimen>
+    <dimen name="axis_x_textSize">5dp</dimen>
+    <dimen name="dot_valueTextSize">5dp</dimen>
+    <dimen name="graph_lineWidth">2dp</dimen>
+    <dimen name="graph_lineCircleRadius">2dp</dimen>
+    <dimen name="graph_minlineWidth">0.5dp</dimen>
+    <dimen name="additions_to_max_sizeLine">0.15dp</dimen>
+    <dimen name="addisize_to_graph">0.25dp</dimen>
+    <dimen name="barWidth_middle">0.4dp</dimen>
+
+    <dimen name="graph_margin">4dp</dimen>
+
+</resources>

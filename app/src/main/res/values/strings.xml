@@ -1,0 +1,105 @@
+<resources>
+
+    <string name="app_name">Dash Board</string>
+    // info develop
+    <string name="dev_info_mail">i.dubyk@avatlantik.com.ua</string>
+    <string name="support_info_mail">support@avatlantik.com.ua</string>
+    <string name="dev_info">Dubik V.</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_settings_ua">Налаштування</string>
+    <string name="nav_salesUgk_ua">Продажі УГК</string>
+    <string name="nav_salesUgk">Sales UGK</string>
+    <string name="nav_salesMoney_ua">Продажі грн.</string>
+    <string name="nav_salesMoney">Sales Money</string>
+    <string name="nav_margin_ua">Маржа</string>
+    <string name="nav_margin">Margin</string>
+    <string name="nav_stocks_ua">Запаси</string>
+    <string name="nav_stocks">Stocks</string>
+    <string name="nav_communicate_ua">Зєднання</string>
+    <string name="nav_communicate">Communicate</string>
+    <string name="nav_loaddata_ua">Виконати загрузку</string>
+    <string name="nav_loaddata">Load data</string>
+    <string name="nav_service_ua">Сервіс</string>
+    <string name="nav_service">Service</string>
+    <string name="nav_info_ua">Інформация</string>
+    <string name="nav_info">Info</string>
+    <string name="nav_exit_ua">Вихід</string>
+    <string name="nav_exit">Exit</string>
+
+    <string name="login_name">Логін :</string>
+    <string name="password_name">Пароль :</string>
+    <string name="server_name">Сервер :</string>
+    <string name="avt_download">Автоматична загрузка :</string>
+    <string name="on_short_ua">Вкл.</string>
+    <string name="off_short_ua">Викл.</string>
+    <string name="enter_login_name">Введіть логін ...</string>
+    <string name="enter_password_name">Введіть пароль ...</string>
+    <string name="enter_server_name">Введіть адресу серверу ...</string>
+    <string name="enter_data">Введіть дані :</string>
+    <string name="save">Зберегти</string>
+
+    <string name="graph_name">Графік</string>
+    <string name="data_name">Дані</string>
+
+    <string name="textView_numbers_down1">ПФ норм. max</string>
+    <string name="textView_numbers_up1">ПФ 12Q</string>
+    <string name="_100">100%</string>
+    <string name="_88">88</string>
+
+    <string name="sales_ugk_table_m">∑Місяць</string>
+    <string name="sales_ugk_table_d">∑День</string>
+    <string name="sales_ugk_table_delta12">∆ 12</string>
+    <string name="sales_ugk_table_delta3">∆ 3</string>
+    <string name="sales_ugk_table_delta1">∆ 1</string>
+
+    <string name="plane_12q_name">12Q</string>
+    <string name="plane_3q_name">3Q</string>
+    <string name="plane_1q_name">1Q</string>
+
+    <string name="plane_12s_name">12S</string>
+    <string name="plane_3s_name">3S</string>
+    <string name="plane_1s_name">1S</string>
+
+    <string name="norm_name">Норм</string>
+    <string name="fact_name">Факт</string>
+    <string name="quantityClients_name">Кол.кл</string>
+    <string name="averageClients_name">Ср.чек кл</string>
+
+    <string name="name_12z">12Z</string>
+    <string name="name_12Z_avt">12Z авт.</string>
+    <string name="name_12ZF">12ZF</string>
+    <string name="cost_plane">Себ. факт</string>
+    <string name="av_dir_costs">Ср.пр зат(i)</string>
+    <string name="tavt_fact">tавт. факт</string>
+    <string name="name_plane_stocks">План запасів</string>
+    <string name="name_stocks_ugk">Запаси УГК</string>
+
+    <string name="title_Exit">Вихід :</string>
+    <string name="questions_Exit">Ви впевнені що хочете вийти ?</string>
+    <string name="questions_Exit_answer_yes">Так</string>
+    <string name="questions_Exit_answer_no">Ні</string>
+
+    //===download data
+    <string name="error_retrieving_data">Помилка отримання даних</string>
+    <string name="error_processing_data">Помилка обробки даних даних</string>
+    <string name="error_data_not_found">Дані не найдено</string>
+    <string name="error_no_data">Відсутні дані! Потрібно загрузити дані з серверу!</string>
+    <string name="ask_to_dowload_data">Загрузити дані з серверу?</string>
+
+    <string name="error_authorisation_error">Невірно вказаний логін або пароль</string>
+    <string name="error_internet_connecting">Відсутнє зєднання з інтернетом</string>
+    <string name="error_connection_server">Зєдання з сервером не встановлено</string>
+    <string name="error_login_null">Не вказано логін</string>
+    <string name="error_server_null">Не вказана адреса серверу</string>
+
+    <string name="error_invalid_query">Помилка запиту</string>
+    <string name="finish_dowload_data">Завантаження даних виконано успішно</string>
+
+    <string name="dowload_data_from_server">Завантаження даних з серверу...</string>
+    <string name="treatment_data">Обробка даних...</string>
+
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:paddingTop="10dp"
+    android:background="#add4e4"
+    >
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/title"
+        android:text="@string/enter_data"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/text_login"
+        android:layout_below="@id/title"
+        android:text="@string/login_name"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:textColor="#000000" />
+    <EditText android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/title"
+        android:layout_toRightOf="@id/text_login"
+        android:hint="@string/enter_login_name"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:autoText="true"
+        android:id="@+id/editText_login" />
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/text_password"
+        android:text="@string/password_name"
+        android:layout_below="@id/text_login"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:textColor="#000000" />
+    <EditText android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/text_login"
+        android:layout_toRightOf="@id/text_password"
+        android:hint="@string/enter_password_name"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:autoText="true"
+        android:inputType="textPassword"
+        android:id="@+id/editText_password" />
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/text_server"
+        android:text="@string/server_name"
+        android:layout_below="@id/text_password"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:textColor="#000000" />
+
+    <EditText android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/text_password"
+        android:layout_toRightOf="@id/text_server"
+        android:hint="@string/enter_server_name"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:id="@+id/editText_adressServer" />
+
+    <Switch
+        android:id="@+id/avtDown_switch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_server"
+        android:text="@string/avt_download"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:textOff="@string/off_short_ua"
+        android:textOn="@string/on_short_ua"
+        android:layout_margin="20dp" />
+
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_enter"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/avtDown_switch"
+        android:textSize="@dimen/textView_numbers_big_textsize"
+        android:background="#3ea4cf" />
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|left"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--android:src="@android:drawable/ic_dialog_email" />-->
+
+</RelativeLayout>

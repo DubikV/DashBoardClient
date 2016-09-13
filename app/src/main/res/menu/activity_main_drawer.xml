@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_salesUgk"
+            android:icon="@drawable/ic_menu_graph"
+            android:title="@string/nav_salesUgk_ua" />
+        <item
+            android:id="@+id/nav_salesMoney"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/nav_salesMoney_ua" />
+        <item
+            android:id="@+id/nav_margin"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_margin_ua" />
+        <item
+            android:id="@+id/nav_stocks"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/nav_stocks_ua" />
+    </group>
+
+    <item android:title="@string/nav_service_ua">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_settings_app"
+                android:title="@string/action_settings_ua" />
+            <!--<item-->
+                <!--android:id="@+id/nav_loadData"-->
+                <!--android:icon="@drawable/ic_menu_download_data"-->
+                <!--android:title="@string/nav_loaddata_ua" />-->
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@drawable/ic_menu_info"
+                android:title="@string/nav_info_ua" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_menu_exit_app"
+                android:title="@string/nav_exit_ua" />
+        </menu>
+    </item>
+
+</menu>
