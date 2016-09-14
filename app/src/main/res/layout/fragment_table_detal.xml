@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#add4e4">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/table_detail_cap_listView"
+        android:layout_weight="5"
+        android:layout_margin="5dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="71dp"
+                android:text="@string/type_data_name_s"
+                android:gravity="center"
+                android:background="@drawable/shape_detail_table_cap"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/type_plane_name"
+                    android:gravity="center"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/type_plane_s_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/type_plane_s_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/money_thausen_name"
+                    android:gravity="center"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_s_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_s_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/delta_name"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_s_delta_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green"
+                        android:longClickable="false" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/percent_name"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_s_percent_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green"
+                        android:clickable="false" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_s_first_table_datail"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/graph_name"
+                    android:id="@+id/button_s_second_table_datail"
+                    android:textSize="10sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:text="@string/symbol_equally"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_line"
+                android:layout_marginLeft="5dp"></LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="71dp"
+                android:text="@string/type_data_name_q"
+                android:gravity="center"
+                android:background="@drawable/shape_detail_table_cap"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/type_plane_name"
+                    android:gravity="center"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/type_plane_q_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/type_plane_q_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/ton_name_short"
+                    android:gravity="center"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_q_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_q_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/delta_name"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_q_delta_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_q_delta_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cap" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/percent_name"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_q_percent_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_q_percent_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_q_first_table_datail"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/graph_name"
+                    android:id="@+id/button_q_second_table_datail"
+                    android:textSize="10sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:text="@string/symbol_multiplication"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_line"
+                android:layout_marginLeft="5dp"></LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="71dp"
+                android:text="@string/type_data_name_p"
+                android:gravity="center"
+                android:background="@drawable/shape_detail_table_cap"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/type_plane_name"
+                    android:gravity="center"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/type_plane_з_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/type_plane_з_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/money_prise_name"
+                    android:gravity="center"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:textSize="17sp"
+                    android:textIsSelectable="true" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_з_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_з_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/delta_name"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_з_delta_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_p_delta_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cap" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/percent_name"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_p_percent_first_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_green" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/data_p_percent_second_textView"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/shape_detail_table_cell_clear" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_p_first_table_datail"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_detail_table_cap" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/graph_name"
+                    android:id="@+id/button_p_second_table_datail"
+                    android:textSize="10sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_detail_table_cap"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"></LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

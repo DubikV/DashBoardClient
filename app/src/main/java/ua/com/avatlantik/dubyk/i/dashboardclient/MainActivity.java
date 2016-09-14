@@ -25,12 +25,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.Constants.ConstantsGlobal;
+import ua.com.avatlantik.dubyk.i.dashboardclient.Data.Data_tableDetail_cap;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Database.DBHelper;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_GetURL;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_ReadWrite_Data;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Settings.SettingConnect;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Settings.SettingsUser;
-import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.FragmentComparion_12_3;
+import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.FragmentTableDetail;
 import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.InfoFragment;
 import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.SettingsFragment;
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private Module_GetURL module_getURL;
     private NavigationView navigationView;
     private SettingConnect settingConnect;
+    private Spinner spinner_bn, spinner_period;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,12 +130,12 @@ public class MainActivity extends AppCompatActivity {
             res.moveToNext();
         }
 
-        Spinner spinner_bn = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_bn);
+        spinner_bn = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_bn);
 
         spinner_bn.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,list));
 
 
-        Spinner spinner_period = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_period);
+        spinner_period = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_period);
 
         spinner_period.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, ConstantsGlobal.mounth ));
 
@@ -237,12 +239,11 @@ public class MainActivity extends AppCompatActivity {
         if (itemId == R.id.nav_comparion_12_3) {
             setToolbarText(getString(R.string.nav_comparion_12_3_ua));
             FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-            xfragmentTransaction.replace(R.id.containerView, new FragmentComparion_12_3()).commit();
+            xfragmentTransaction.replace(R.id.containerView, new FragmentTableDetail()).commit();
         }else if (itemId == R.id.nav_info) {
             setToolbarText(getString(R.string.nav_info_ua));
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView, new InfoFragment()).commit();
-            return;
 
         }else if (itemId == R.id.nav_settings) {
             setToolbarText(getString(R.string.action_settings_ua));
@@ -272,7 +273,17 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        setNavigationItemSelected(R.id.nav_comparion_12_3);
+        ArrayList<Data_tableDetail_cap> listCap = getDataToCapTabledetail();
+
+        if (listCap.size() > 0) {
+            setToolbarText(getString(R.string.nav_comparion_12_3_ua));
+
+            FragmentTableDetail fragmentTableDetail = new FragmentTableDetail();
+            fragmentTableDetail.setListCap(listCap);
+
+            FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+            xfragmentTransaction.replace(R.id.containerView, fragmentTableDetail).commit();
+        }
     }
 
 
@@ -382,7 +393,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private ArrayList<Data_tableDetail_cap> getDataToCapTabledetail(){
+        ArrayList<Data_tableDetail_cap> list = new ArrayList<>();
 
+        String spinner_value = (String) spinner_bn.getSelectedItem();
+        if(spinner_value!=null){
+            list.add(new Data_tableDetail_cap("Бізнес напрямок : ", spinner_value));
+        }
+
+        spinner_value = (String) spinner_period.getSelectedItem();
+        if(spinner_value!=null){
+            list.add(new Data_tableDetail_cap("Період : ", spinner_value));
+        }
+
+        return list;
+
+    }
 
 
 }

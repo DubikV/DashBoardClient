@@ -108,19 +108,17 @@
     <string name="dowload_data_from_server">Завантаження даних з серверу...</string>
     <string name="treatment_data">Обробка даних...</string>
 
-    <string-array name="mounths">
-        <item>Січень</item>
-        <item>Лютий</item>
-        <item>Березень</item>
-        <item>Квітень</item>
-        <item>Травень</item>
-        <item>Червень</item>
-        <item>Липень</item>
-        <item>Серпень</item>
-        <item>Вересень</item>
-        <item>Жовтень</item>
-        <item>Листопад</item>
-        <item>Грудень</item>
-    </string-array>
+    //detail table
+    <string name="type_data_name_s">S</string>
+    <string name="type_data_name_p">P</string>
+    <string name="type_data_name_q">Q</string>
+    <string name="delta_name">Δ</string>
+    <string name="percent_name">%</string>
+    <string name="type_plane_name">Тип пл.</string>
+    <string name="money_thausen_name">тис.грн.</string>
+    <string name="money_prise_name">грн./т.</string>
+    <string name="ton_name_short">т.</string>
+    <string name="symbol_multiplication">x</string>
+    <string name="symbol_equally">=</string>
 
 </resources>
