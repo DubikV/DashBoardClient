@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
@@ -25,13 +26,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.Constants.ConstantsGlobal;
-import ua.com.avatlantik.dubyk.i.dashboardclient.Data.Data_tableDetail_cap;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Database.DBHelper;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_GetURL;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_ReadWrite_Data;
-import ua.com.avatlantik.dubyk.i.dashboardclient.Settings.SettingConnect;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Settings.SettingsUser;
-import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.FragmentTableDetail;
+import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.FragmentTableDetailBN;
 import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.InfoFragment;
 import ua.com.avatlantik.dubyk.i.dashboardclient.fragment.SettingsFragment;
 
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     private Module_ReadWrite_Data module_readWrite_data;
     private Module_GetURL module_getURL;
     private NavigationView navigationView;
-    private SettingConnect settingConnect;
     private Spinner spinner_bn, spinner_period;
 
     @Override
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
         module_readWrite_data = new Module_ReadWrite_Data(this);
         module_getURL = new Module_GetURL(this);
-        settingConnect = SettingConnect.getInstance();
 
         res = getResources();
 
@@ -70,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         initTabs();
 
         downloadFirstData();
-
-        initSpinners();
 
     }
 
@@ -238,8 +233,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (itemId == R.id.nav_comparion_12_3) {
             setToolbarText(getString(R.string.nav_comparion_12_3_ua));
+
+            FragmentTableDetailBN fragmentTableDetail = new FragmentTableDetailBN();
+            fragmentTableDetail.setParameters((String) spinner_bn.getSelectedItem(),
+                                              (String) spinner_period.getSelectedItem(),
+                                               ConstantsGlobal.TYPE_DATA_12_3_DATA);
             FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-            xfragmentTransaction.replace(R.id.containerView, new FragmentTableDetail()).commit();
+            xfragmentTransaction.replace(R.id.containerView, fragmentTableDetail).commit();
+
         }else if (itemId == R.id.nav_info) {
             setToolbarText(getString(R.string.nav_info_ua));
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
@@ -253,6 +254,12 @@ public class MainActivity extends AppCompatActivity {
 
             SetOnExitApp();
 
+        }else {
+
+            initSpinners();
+
+            drawerLayout.openDrawer(Gravity.LEFT);
+
         }
     }
 
@@ -260,30 +267,20 @@ public class MainActivity extends AppCompatActivity {
 
         if(module_getURL.getCheckConnektion()) {
 
-            String url = module_getURL.getGetURL(ConstantsGlobal.SALES_GET_NAME);
+            String url = module_getURL.getGetURL(ConstantsGlobal.TYPE_DATA_BN_DATA_RES+ConstantsGlobal.TYPE_DATA_12_3_DATA,
+                                                (String) spinner_bn.getSelectedItem(),"","",
+                                                (String) spinner_period.getSelectedItem());
             if(url.isEmpty() || url==null){
                 return;
             }
             DownloadData downloadData = new DownloadData();
             downloadData.setMainActivity(this);
-            downloadData.setNameData(ConstantsGlobal.SALES_GET_NAME);
             downloadData.setOpenStart(true);
             downloadData.setIdItemSelected(R.id.nav_comparion_12_3);
             downloadData.execute(url);
 
         }
 
-        ArrayList<Data_tableDetail_cap> listCap = getDataToCapTabledetail();
-
-        if (listCap.size() > 0) {
-            setToolbarText(getString(R.string.nav_comparion_12_3_ua));
-
-            FragmentTableDetail fragmentTableDetail = new FragmentTableDetail();
-            fragmentTableDetail.setListCap(listCap);
-
-            FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-            xfragmentTransaction.replace(R.id.containerView, fragmentTableDetail).commit();
-        }
     }
 
 
@@ -312,11 +309,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        try{
-            drawerLayout.closeDrawers();
-        }catch (Exception e){
-            super.onBackPressed();
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            try {
+                drawerLayout.closeDrawers();
+            } catch (Exception e) {
+                super.onBackPressed();
+            }
+        } else {
+            if (mFragmentManager.getBackStackEntryCount() > 0) {
+                mFragmentManager.popBackStack();
+            } else {
+                super.onBackPressed();
+            }
         }
+
     }
 
     public void downloadDatafullData(){
@@ -358,11 +365,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void downloadFirstData(){
 
-        String textURL = "getDataDTO?type="+ ConstantsGlobal.TYPE_DATA_BN_DATA;
-
         if(module_getURL.getCheckConnektion()) {
 
-            String url = module_getURL.getGetURL(textURL);
+            String url = module_getURL.getGetURL(ConstantsGlobal.TYPE_DATA_BN_DATA,"","","","");
             if(url.isEmpty() || url==null){
                 setToolbarText(getString(R.string.action_settings_ua));
                 FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
@@ -371,12 +376,8 @@ public class MainActivity extends AppCompatActivity {
             }
             DownloadData downloadData = new DownloadData();
             downloadData.setMainActivity(this);
-            downloadData.setNameData(null);
-            downloadData.setOpenStart(false);
+            downloadData.setOpenStart(true);
             downloadData.execute(url);
-
-            drawerLayout.openDrawer(Gravity.LEFT);
-
         }
 
     }
@@ -390,23 +391,6 @@ public class MainActivity extends AppCompatActivity {
     public void setToastToActivity(String textToast){
 
         Toast.makeText(getApplicationContext(), textToast, Toast.LENGTH_LONG).show();
-
-    }
-
-    private ArrayList<Data_tableDetail_cap> getDataToCapTabledetail(){
-        ArrayList<Data_tableDetail_cap> list = new ArrayList<>();
-
-        String spinner_value = (String) spinner_bn.getSelectedItem();
-        if(spinner_value!=null){
-            list.add(new Data_tableDetail_cap("Бізнес напрямок : ", spinner_value));
-        }
-
-        spinner_value = (String) spinner_period.getSelectedItem();
-        if(spinner_value!=null){
-            list.add(new Data_tableDetail_cap("Період : ", spinner_value));
-        }
-
-        return list;
 
     }
 

@@ -6,7 +6,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/table_detail_cap_listView"
         android:layout_weight="5"
         android:layout_margin="5dp" />
@@ -197,17 +197,9 @@
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button_s_first_table_datail"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_detail_table_cap" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="@string/graph_name"
-                    android:id="@+id/button_s_second_table_datail"
+                    android:id="@+id/button_s_table_datail"
                     android:textSize="10sp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_detail_table_cap"
@@ -433,17 +425,9 @@
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button_q_first_table_datail"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_detail_table_cap" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="@string/graph_name"
-                    android:id="@+id/button_q_second_table_datail"
+                    android:id="@+id/button_q_table_datail"
                     android:textSize="10sp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_detail_table_cap"
@@ -670,17 +654,9 @@
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button_p_first_table_datail"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_detail_table_cap" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="@string/graph_name"
-                    android:id="@+id/button_p_second_table_datail"
+                    android:id="@+id/button_p_table_datail"
                     android:textSize="10sp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_detail_table_cap"
@@ -693,7 +669,16 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.8"></LinearLayout>
+            android:layout_weight="0.8">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_data"
+                android:background="@drawable/shape_detail_table_cap"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
 
     </LinearLayout>
 

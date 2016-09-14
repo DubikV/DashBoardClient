@@ -11,17 +11,23 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="12">
+        android:layout_weight="6">
 
-        <TextView
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/error_no_data"
-            android:id="@+id/textView_header_graph"
-            android:layout_gravity="top|center|right"
-            android:textSize="@dimen/textView_numbers_big_textsize"
+            android:id="@+id/listView"
             android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal" />
+            android:layout_margin="5dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_graph_back"
+            android:layout_weight="6"
+            android:background="@drawable/ic_chevron_left" />
+
     </LinearLayout>
 
     <com.github.mikephil.charting.charts.CombinedChart
@@ -31,4 +37,5 @@
         android:layout_margin="@dimen/graph_margin"
         android:layout_weight="1"
         android:layout_gravity="center" />
+
 </LinearLayout>

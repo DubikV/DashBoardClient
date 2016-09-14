@@ -12,4 +12,5 @@
 <item name="ic_menu_settings_app" type="drawable">@mipmap/ic_settings</item>
 <item name="ic_menu_download_data" type="drawable">@mipmap/ic_download</item>
 <item name="ic_menu_graph" type="drawable">@mipmap/ic_chart_histogram</item>
+<item name="ic_chevron_left" type="drawable">@mipmap/ic_chevron_left</item>
 </resources>

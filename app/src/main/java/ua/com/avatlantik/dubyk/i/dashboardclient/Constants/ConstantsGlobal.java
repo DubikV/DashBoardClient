@@ -14,29 +14,19 @@ public class ConstantsGlobal {
     public static final String PLANE_12Q = "12Q";
     public static final String PLANE_3Q = "3Q";
     public static final String PLANE_1Q = "1Q";
+    public static final String PLANE_12S = "12S";
+    public static final String PLANE_3S = "3S";
+    public static final String PLANE_1S = "1S";
+    public static final String PLANE_12P = "12P";
+    public static final String PLANE_3P = "3P";
+    public static final String PLANE_1P = "1P";
+
     public static final String FACT = "fact";
     public static final String NORM = "norm";
     public static final String QC = "quantityClients";
     public static final String AZ = "averageClients";
 
-    public static final String PLANE_12S = "12S";
-    public static final String PLANE_3S = "3S";
-    public static final String PLANE_1S = "1S";
 
-    public static final String NAME_12Z = "12Z";
-    public static final String NAME_12Zavt = "12Zavt";
-    public static final String NAME_12ZF = "12ZF";
-    public static final String NAME_COST_PLANE = "cost_plane";
-    public static final String NAME_AV_DIR_COSTS = "av_dir_costs";
-    public static final String NAME_TAVT_FACT = "tavt_fact";
-
-    public static final String NAME_PLANE_STOCKS = "plane_stoks";
-    public static final String NAME_STOCKS_UGK = "stocksUGK";
-
-    public static final String SALES_GET_NAME = "salesUGK";
-    public static final String SALESMONEY_GET_NAME = "salesMoney";
-    public static final String STOCKS_GET_NAME = "stocksGet";
-    public static final String MARGIN_GET_NAME = "margin";
 
     //===To Data Base
     public static final String DATABASE_NAME = "dataB.db";
@@ -54,8 +44,12 @@ public class ConstantsGlobal {
 
     //===Type Data
     public static final String TYPE_DATA_BN_DATA = "bnData";
+    public static final String TYPE_DATA_BN_DATA_RES = "bnDataRes";
     public static final String TYPE_DATA_BRANCH_DATA = "branchData";
     public static final String TYPE_DATA_MANAGER_DATA = "managerData";
 
+    public static final String TYPE_DATA_12_3_DATA = "12_3";
+    public static final String TYPE_DATA_3_1_DATA = "3_1";
+    public static final String TYPE_DATA_1_exp_DATA = "1_exp";
 
 }

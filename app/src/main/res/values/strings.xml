@@ -108,6 +108,18 @@
     <string name="dowload_data_from_server">Завантаження даних з серверу...</string>
     <string name="treatment_data">Обробка даних...</string>
 
+    //name data
+    <string name="bn_name">Бізнес напрямок</string>
+    <string name="brunch_name">Філія</string>
+    <string name="manager_name">Менеджер</string>
+    <string name="area_name">Площадка</string>
+
+    <string name="bn_name_bunch">Бізнес напрямоки</string>
+    <string name="brunch_name_bunch">Філії</string>
+    <string name="manager_name_bunch">Менеджери</string>
+    <string name="area_name_bunch">Площадки</string>
+
+
     //detail table
     <string name="type_data_name_s">S</string>
     <string name="type_data_name_p">P</string>

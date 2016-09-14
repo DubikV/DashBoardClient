@@ -29,17 +29,12 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
     private String resultJson = "";
     private MainActivity mainActivity;
     private ProgressDialog progressDialog;
-    private String nameData;
     private boolean openStart;
     private int idItemSelected;
     private DBHelper dbHelper;
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-    }
-
-    public void setNameData(String nameData) {
-        this.nameData = nameData;
     }
 
     public void setOpenStart(boolean openStart) {

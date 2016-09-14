@@ -118,6 +118,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return array_list;
     }
 
+
     public Cursor getDataWithSelection(String colums, String selections) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select "+colums+" from "+ ConstantsGlobal.TABLE_NAME +

@@ -1,10 +1,12 @@
 package ua.com.avatlantik.dubyk.i.dashboardclient.Modules;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.Constants.ConstantsGlobal;
+import ua.com.avatlantik.dubyk.i.dashboardclient.Database.DBHelper;
 import ua.com.avatlantik.dubyk.i.dashboardclient.MainActivity;
 import ua.com.avatlantik.dubyk.i.dashboardclient.R;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Settings.SettingConnect;
@@ -32,7 +34,7 @@ public class Module_GetURL {
         this.mainActivity = mainActivity;
     }
 
-    public String getGetURL(String dataName){
+    public String getGetURL(String dataName, String bn, String brunch, String manager, String period){
 
         String textURL;
 
@@ -46,7 +48,63 @@ public class Module_GetURL {
             return "";
         }
 
-        return "http://" + settingConnect.getAdressServer() + ConstantsGlobal.HTTPSERVICE_1C_NAME + "/" + dataName;
+        if(dataName==null || dataName.isEmpty()){
+            return "";
+        }else{
+            textURL = "getDataDTO?type="+ dataName;
+        }
+
+        if(bn!=null){
+           if (!bn.isEmpty()) {
+               textURL = textURL + "," + "," + ConstantsGlobal.TABLE_COLUMN_BN_GUID + "=" +
+                       getGuidElementByName(bn, ConstantsGlobal.TABLE_COLUMN_BN_NAME, ConstantsGlobal.TABLE_COLUMN_BN_GUID);
+           }
+        }
+        if(brunch!=null){
+            if (!brunch.isEmpty()){
+            textURL = textURL +","+ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID+"="+
+                    getGuidElementByName(brunch,ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME, ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID);
+            }
+        }
+
+        if(manager!=null){
+            if (!manager.isEmpty()){
+            textURL = textURL +","+ConstantsGlobal.TABLE_COLUMN_MANAGER_GUID+"="+
+                    getGuidElementByName(manager,ConstantsGlobal.TABLE_COLUMN_MANAGER_NAME, ConstantsGlobal.TABLE_COLUMN_MANAGER_GUID);
+            }
+        }
+
+        if(period!=null){
+            if (!period.isEmpty()){
+               if(period.equals("Січень")){
+                   textURL = textURL +",period=1";
+               }else if(period.equals("Лютий")){
+                   textURL = textURL +",period=2";
+               }else if(period.equals("Березень")){
+                   textURL = textURL +",period=3";
+               }else if(period.equals("Квітень")){
+                   textURL = textURL +",period=4";
+               }else if(period.equals("Травень")){
+                   textURL = textURL +",period=5";
+               }else if(period.equals("Червень")){
+                   textURL = textURL +",period=6";
+               }else if(period.equals("Липень")){
+                   textURL = textURL +",period=7";
+               }else if(period.equals("Серпень")){
+                   textURL = textURL +",period=8";
+               }else if(period.equals("Вересень")){
+                   textURL = textURL +",period=9";
+               }else if(period.equals("Жовтень")){
+                   textURL = textURL +",period=10";
+               }else if(period.equals("Листопад")){
+                   textURL = textURL +",period=11";
+               }else if(period.equals("Грудень")){
+                   textURL = textURL +",period=12";
+               }
+            }
+        }
+
+        return "http://" + settingConnect.getAdressServer() + ConstantsGlobal.HTTPSERVICE_1C_NAME + "/" + textURL;
 
     }
 
@@ -122,4 +180,17 @@ public class Module_GetURL {
             return false;
         }
     }
+
+    private String getGuidElementByName(String name,String columName, String columGuid){
+        DBHelper dbHelper = new DBHelper(mainActivity);
+
+        Cursor res = dbHelper.getDataWithSelection(columGuid,
+                ""+columName+" = '"+name+"'");
+
+        while(res.isAfterLast() == false){
+            return res.getString(res.getColumnIndex(columGuid));
+        }
+        return "";
+    }
+
 }
