@@ -2,6 +2,9 @@ package ua.com.avatlantik.dubyk.i.dashboardclient.Constants;
 
 public class ConstantsGlobal {
 
+    public static final String[] mounth = {"Січень","Лютий","Березень","Квітень","Травень","Червень","Липень",
+                                 "Серпень","Вересень","Жовтень","Листопад","Грудень"};
+
     public static final int MAX_TIME =2000;
     public static final int HALF_TIME =1000;
     public static final int SMALL_TIME =500;
@@ -53,5 +56,6 @@ public class ConstantsGlobal {
     public static final String TYPE_DATA_BN_DATA = "bnData";
     public static final String TYPE_DATA_BRANCH_DATA = "branchData";
     public static final String TYPE_DATA_MANAGER_DATA = "managerData";
+
 
 }

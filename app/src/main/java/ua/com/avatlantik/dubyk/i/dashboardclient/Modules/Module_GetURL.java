@@ -76,11 +76,11 @@ public class Module_GetURL {
 
     public boolean getCheckConnektion() {
 
-       if (getCheckEnternet()) {
+        if (getCheckEnternet()) {
 
 
 
-           //try {
+            //try {
 //                URL url = new URL(urlString);
 //
 //                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -93,7 +93,7 @@ public class Module_GetURL {
 //                switch (status) {
 //                    case 200:
 //                    case 201:
-                       return true;
+            return true;
 //                }
 //            } catch (MalformedURLException e) {
 //                e.printStackTrace();
@@ -107,19 +107,19 @@ public class Module_GetURL {
 //            mainActivity.setToastToActivity(mainActivity.getString(R.string.error_connection_server));
 //            return false;
         }
-      return false;
+        return false;
     }
 
     public boolean getCheckEnternet() {
 
-            final ConnectivityManager conMgr = (ConnectivityManager)mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
-            final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
+        final ConnectivityManager conMgr = (ConnectivityManager)mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
 
-              if (activeNetwork != null && activeNetwork.isConnected()) {
-                  return true;
-              } else {
-                  mainActivity.setToastToActivity(mainActivity.getString(R.string.error_internet_connecting));
-                 return false;
-              }
+        if (activeNetwork != null && activeNetwork.isConnected()) {
+            return true;
+        } else {
+            mainActivity.setToastToActivity(mainActivity.getString(R.string.error_internet_connecting));
+            return false;
+        }
     }
 }

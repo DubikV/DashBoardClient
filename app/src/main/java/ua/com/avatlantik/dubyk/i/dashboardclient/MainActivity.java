@@ -2,6 +2,7 @@ package ua.com.avatlantik.dubyk.i.dashboardclient;
 
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -20,9 +21,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.Constants.ConstantsGlobal;
+import ua.com.avatlantik.dubyk.i.dashboardclient.Database.DBHelper;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_GetURL;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Modules.Module_ReadWrite_Data;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Settings.SettingConnect;
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager mFragmentManager;
     private Module_ReadWrite_Data module_readWrite_data;
     private Module_GetURL module_getURL;
-    NavigationView navigationView;
+    private NavigationView navigationView;
     private SettingConnect settingConnect;
 
     @Override
@@ -98,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
 
                 if (id == R.id.action_loadData) {
-                 downloadDatafullData();
-                 return true;
+                    downloadDatafullData();
+                    return true;
                 }
                 return false;
 
@@ -114,34 +117,32 @@ public class MainActivity extends AppCompatActivity {
     private void initSpinners() {
 
 
-//        ArrayList<String> list =  new ArrayList<String>();
-//        DBHelper dbHelper = new DBHelper(this);
-//
-//        Cursor res = dbHelper.getDataWithSelection(ConstantsGlobal.TABLE_COLUMN_BN_NAME,
-//                ""+ConstantsGlobal.TABLE_COLUMN_TYPE_DATA+" = '"+ConstantsGlobal.TYPE_DATA_BN_DATA+"'");
-//
-//        while(res.isAfterLast() == false){
-//            list.add(res.getString(res.getColumnIndex(ConstantsGlobal.TABLE_COLUMN_BN_NAME)));
-//            res.moveToNext();
-//        }
-//
-//        Spinner spinner_bn = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_bn);
-//
-//        spinner_bn.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,list));
+        ArrayList<String> list =  new ArrayList<String>();
+        DBHelper dbHelper = new DBHelper(this);
+
+        Cursor res = dbHelper.getDataWithSelection(ConstantsGlobal.TABLE_COLUMN_BN_NAME,
+                ""+ConstantsGlobal.TABLE_COLUMN_TYPE_DATA+" = '"+ConstantsGlobal.TYPE_DATA_BN_DATA+"'");
+
+        while(res.isAfterLast() == false){
+            list.add(res.getString(res.getColumnIndex(ConstantsGlobal.TABLE_COLUMN_BN_NAME)));
+            res.moveToNext();
+        }
+
+        Spinner spinner_bn = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_bn);
+
+        spinner_bn.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,list));
 
 
         Spinner spinner_period = (Spinner) navigationView.getHeaderView(0).findViewById(R.id.spinner_period);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.mounths, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_period.setAdapter(adapter);
+
+        spinner_period.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, ConstantsGlobal.mounth ));
 
         Calendar c = Calendar.getInstance();
         int number = c.get(Calendar.MONTH);
-        if (number>0){
-            number = number - 1;
+        if (number>12){
+            number = 12;
         }else{
-            number = 0;
+            number = number++;
         }
         spinner_period.setSelection(number, true);
 
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentManager = getSupportFragmentManager();
 
-   }
+    }
 
     private void initNavigationView() {
 
@@ -186,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (settingsUser.getUserLogin() != null){
 
-                text_nav_heared_login.setText(settingsUser.getUserLogin());
+                    text_nav_heared_login.setText(settingsUser.getUserLogin());
 
                 }
 
@@ -256,22 +257,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void onNavigationItemSelectedComparion_12_3(){
 
-         if(module_getURL.getCheckConnektion()) {
+        if(module_getURL.getCheckConnektion()) {
 
-                String url = module_getURL.getGetURL(ConstantsGlobal.SALES_GET_NAME);
-                if(url.isEmpty() || url==null){
-                    return;
-                }
-                DownloadData downloadData = new DownloadData();
-                downloadData.setMainActivity(this);
-                downloadData.setNameData(ConstantsGlobal.SALES_GET_NAME);
-                downloadData.setOpenStart(true);
-                downloadData.setIdItemSelected(R.id.nav_comparion_12_3);
-                downloadData.execute(url);
+            String url = module_getURL.getGetURL(ConstantsGlobal.SALES_GET_NAME);
+            if(url.isEmpty() || url==null){
+                return;
+            }
+            DownloadData downloadData = new DownloadData();
+            downloadData.setMainActivity(this);
+            downloadData.setNameData(ConstantsGlobal.SALES_GET_NAME);
+            downloadData.setOpenStart(true);
+            downloadData.setIdItemSelected(R.id.nav_comparion_12_3);
+            downloadData.execute(url);
 
-         }
+        }
 
-            setNavigationItemSelected(R.id.nav_comparion_12_3);
+        setNavigationItemSelected(R.id.nav_comparion_12_3);
     }
 
 

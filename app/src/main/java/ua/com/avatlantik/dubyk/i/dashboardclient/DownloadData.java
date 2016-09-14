@@ -93,63 +93,63 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
     }
 
     public String downloadData(String urlData) throws IOException {
-    // получаем данные с внешнего ресурса
-    try
+        // получаем данные с внешнего ресурса
+        try
 
-    {
-        URL url = new URL(urlData);
+        {
+            URL url = new URL(urlData);
 
-        urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection = (HttpURLConnection) url.openConnection();
 
-        Module_GetURL module_getURL = new Module_GetURL();
+            Module_GetURL module_getURL = new Module_GetURL();
 
-        urlConnection.setRequestMethod("GET");
-        urlConnection.setUseCaches(false);
-        urlConnection.setConnectTimeout(10000);
-        urlConnection.addRequestProperty ("Authorization", "Basic " + Base64.encodeToString((module_getURL.getusrlogin()+":"+module_getURL.getusrPassword()).getBytes(), Base64.NO_WRAP));
-        urlConnection.connect();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setUseCaches(false);
+            urlConnection.setConnectTimeout(10000);
+            urlConnection.addRequestProperty ("Authorization", "Basic " + Base64.encodeToString((module_getURL.getusrlogin()+":"+module_getURL.getusrPassword()).getBytes(), Base64.NO_WRAP));
+            urlConnection.connect();
 
-        int status = 408;
+            int status = 408;
 
-        try {
-            // Will throw IOException if server responds with 401.
-            status = urlConnection.getResponseCode();
+            try {
+                // Will throw IOException if server responds with 401.
+                status = urlConnection.getResponseCode();
+            } catch (IOException e) {
+                // Will return 401, because now connection has the correct internal state.
+                status = urlConnection.getResponseCode();
+            }
+
+            //int status = urlConnection.getResponseCode();
+
+            switch (status) {
+                case 400:
+                    return mainActivity.getString(R.string.error_invalid_query);
+                case 401:
+                    return mainActivity.getString(R.string.error_authorisation_error);
+                case 404:
+                    return mainActivity.getString(R.string.error_data_not_found);
+                case 200:
+                case 201:
+                    reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    StringBuilder buffer = new StringBuilder();
+                    String line = "";
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line);
+                    }
+                    reader.close();
+                    resultJson = buffer.toString();
+                    urlConnection.disconnect();
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return mainActivity.getString(R.string.error_retrieving_data);
         } catch (IOException e) {
-            // Will return 401, because now connection has the correct internal state.
-            status = urlConnection.getResponseCode();
+            e.printStackTrace();
+            return mainActivity.getString(R.string.error_retrieving_data);
         }
 
-        //int status = urlConnection.getResponseCode();
-
-        switch (status) {
-            case 400:
-                return mainActivity.getString(R.string.error_invalid_query);
-            case 401:
-                return mainActivity.getString(R.string.error_authorisation_error);
-            case 404:
-                return mainActivity.getString(R.string.error_data_not_found);
-            case 200:
-            case 201:
-                reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                StringBuilder buffer = new StringBuilder();
-                String line = "";
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line);
-                }
-                reader.close();
-                resultJson = buffer.toString();
-                urlConnection.disconnect();
-        }
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-        return mainActivity.getString(R.string.error_retrieving_data);
-    } catch (IOException e) {
-        e.printStackTrace();
-        return mainActivity.getString(R.string.error_retrieving_data);
+        return parseDataJson(resultJson);
     }
-
-    return parseDataJson(resultJson);
-  }
     private String parseDataJson(String strJson){
 
         dbHelper = new DBHelper(mainActivity);
