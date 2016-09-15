@@ -40,8 +40,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
-//        db.execSQL("DROP TABLE IF EXISTS "+ ConstantsGlobal.TABLE_NAME );
-//        onCreate(db);
+        db.execSQL("DROP TABLE IF EXISTS "+ ConstantsGlobal.TABLE_NAME );
+        onCreate(db);
     }
 
     public boolean insertData  (String mainTypeData,String bnName, String bnGuid, String branchName, String branchGuid,

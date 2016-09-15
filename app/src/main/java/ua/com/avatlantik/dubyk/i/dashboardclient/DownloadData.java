@@ -153,7 +153,7 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
     private String parseDataJson(String strJson){
 
         dbHelper = new DBHelper(mainActivity);
-        //dbHelper.deleteDataByMainType(mainTypeData);
+        dbHelper.deleteDataByMainType(mainTypeData);
         String result ="";
         JSONArray dataJsonArray = null;
 
