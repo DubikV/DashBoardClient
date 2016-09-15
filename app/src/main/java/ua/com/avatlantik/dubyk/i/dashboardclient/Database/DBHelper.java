@@ -24,6 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(
                 "create table "+ ConstantsGlobal.TABLE_NAME +
                         "("+ ConstantsGlobal.TABLE_COLUMN_ID+" integer primary key, "+
+                        ConstantsGlobal.TABLE_COLUMN_MAIN_TYPE_DATA+" text, " +
                         ConstantsGlobal.TABLE_COLUMN_BN_NAME+" text, " +
                         ConstantsGlobal.TABLE_COLUMN_BN_GUID+" text, " +
                         ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME+" text, " +
@@ -39,15 +40,16 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
-        db.execSQL("DROP TABLE IF EXISTS "+ ConstantsGlobal.TABLE_NAME );
-        onCreate(db);
+//        db.execSQL("DROP TABLE IF EXISTS "+ ConstantsGlobal.TABLE_NAME );
+//        onCreate(db);
     }
 
-    public boolean insertData  (String bnName, String bnGuid, String branchName, String branchGuid,
+    public boolean insertData  (String mainTypeData,String bnName, String bnGuid, String branchName, String branchGuid,
                                 String managerName, String managerGuid, String typeData, int period, double data)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstantsGlobal.TABLE_COLUMN_MAIN_TYPE_DATA, mainTypeData);
         contentValues.put(ConstantsGlobal.TABLE_COLUMN_BN_NAME, bnName);
         contentValues.put(ConstantsGlobal.TABLE_COLUMN_BN_GUID, bnGuid);
         contentValues.put(ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME, branchName);
@@ -67,17 +69,19 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
+
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, ConstantsGlobal.TABLE_NAME);
         return numRows;
     }
 
-    public boolean updateData (Integer id, String bnName, String bnGuid, String branchName, String branchGuid,
+    public boolean updateData (Integer id, String mainTypeData, String bnName, String bnGuid, String branchName, String branchGuid,
                                   String managerName, String managerGuid, String typeData, int period, double data)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstantsGlobal.TABLE_COLUMN_MAIN_TYPE_DATA, mainTypeData);
         contentValues.put(ConstantsGlobal.TABLE_COLUMN_BN_NAME, bnName);
         contentValues.put(ConstantsGlobal.TABLE_COLUMN_BN_GUID, bnGuid);
         contentValues.put(ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME, branchName);
@@ -91,12 +95,18 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Integer deleteData(Integer id)
-    {
+    public Integer deleteDataById(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(ConstantsGlobal.TABLE_NAME,
                 ""+ ConstantsGlobal.TABLE_COLUMN_ID + " = ? ",
                 new String[] { Integer.toString(id) });
+    }
+
+    public Integer deleteDataByMainType(String mainTypeData) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(ConstantsGlobal.TABLE_NAME,
+                ""+ ConstantsGlobal.TABLE_COLUMN_MAIN_TYPE_DATA + " = ? ",
+                new String[] { mainTypeData });
     }
 
     public Integer deleteAllData() {

@@ -33,12 +33,12 @@ import ua.com.avatlantik.dubyk.i.dashboardclient.adapter.TableDetailCapAdapter;
  * Created by i.dubyk on 13.09.2016.
  */
 public class FragmentSmallGraph extends Fragment {
-    private static final int LAYOUT = R.layout.fragment_graph;
+    private static final int LAYOUT = R.layout.fragment_graph_small;
     private View view;
     private CombinedChart mChart;
     private ArrayList<String> xAxisList;
     private ArrayList<Data_tableDetail_cap> listCap = new ArrayList<>();
-    private ArrayList<Data_smallGraph> dataList;
+    private ArrayList<Data_smallGraph> dataList = new ArrayList<>();;
     private String type_data;
 
 
@@ -55,15 +55,11 @@ public class FragmentSmallGraph extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(LAYOUT, container, false);
 
-
-
-        if (listCap.size()==0){
-            return view;
-        }
-
         initCap();
 
-        setCombineGraphIntroTheView();
+        if (dataList.size() > 0) {
+            setCombineGraphIntroTheView();
+        }
 
         return view;
     }
@@ -77,6 +73,7 @@ public class FragmentSmallGraph extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+
         ListView listView = (ListView)view.findViewById(R.id.table_detail_cap_listView);
         TableDetailCapAdapter adapter = new TableDetailCapAdapter(getActivity(), listCap);
         listView.setAdapter(adapter);
@@ -165,10 +162,10 @@ public class FragmentSmallGraph extends Fragment {
 
         ArrayList<BarEntry> entries1 = new ArrayList<BarEntry>();
 
-        for (Data_smallGraph data: dataList)
-            if(data.getType().equals(ConstantsGlobal.FACT)) {
-                entries1.add(new BarEntry(data.getxAxic(), (float)data.getValue()));
-            }
+//        for (Data_smallGraph data: dataList)
+//            if(data.getType().equals(ConstantsGlobal.FACT)) {
+//                entries1.add(new BarEntry(data.getxAxic(), (float)data.getValue()));
+//            }
 
         BarDataSet set1 = new BarDataSet(entries1, getString(R.string.fact_name));
         set1.setColor(Color.RED);

@@ -43,7 +43,7 @@ import ua.com.avatlantik.dubyk.i.dashboardclient.R;
  * Created by i.dubyk on 24.06.2016.
  */
 public class ComboGraphFragment extends Fragment {
-    private static  final int LAYOUT = R.layout.fragment_graph;
+    private static  final int LAYOUT = R.layout.fragment_graph_small;
     private View view;
     private CombinedChart mChart;
     private final int itemcount = 12;

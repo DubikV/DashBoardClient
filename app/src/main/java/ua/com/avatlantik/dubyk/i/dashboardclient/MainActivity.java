@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         DBHelper dbHelper = new DBHelper(this);
 
         Cursor res = dbHelper.getDataWithSelection(ConstantsGlobal.TABLE_COLUMN_BN_NAME,
-                ""+ConstantsGlobal.TABLE_COLUMN_TYPE_DATA+" = '"+ConstantsGlobal.TYPE_DATA_BN_DATA+"'");
+                ""+ConstantsGlobal.TABLE_COLUMN_MAIN_TYPE_DATA+" = '"+ConstantsGlobal.TYPE_DATA_BN_DATA+"'");
 
         while(res.isAfterLast() == false){
             list.add(res.getString(res.getColumnIndex(ConstantsGlobal.TABLE_COLUMN_BN_NAME)));
@@ -377,6 +377,7 @@ public class MainActivity extends AppCompatActivity {
             DownloadData downloadData = new DownloadData();
             downloadData.setMainActivity(this);
             downloadData.setOpenStart(true);
+            downloadData.setMainTypeData(ConstantsGlobal.TYPE_DATA_BN_DATA);
             downloadData.execute(url);
         }
 

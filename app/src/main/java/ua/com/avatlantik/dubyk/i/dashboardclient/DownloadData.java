@@ -32,6 +32,7 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
     private boolean openStart;
     private int idItemSelected;
     private DBHelper dbHelper;
+    private String mainTypeData;
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -43,6 +44,10 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
 
     public void setIdItemSelected(int idItemSelected) {
         this.idItemSelected = idItemSelected;
+    }
+
+    public void setMainTypeData(String mainTypeData) {
+        this.mainTypeData = mainTypeData;
     }
 
     @Override
@@ -148,7 +153,7 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
     private String parseDataJson(String strJson){
 
         dbHelper = new DBHelper(mainActivity);
-        dbHelper.deleteAllData();
+        //dbHelper.deleteDataByMainType(mainTypeData);
         String result ="";
         JSONArray dataJsonArray = null;
 
@@ -160,7 +165,8 @@ public class DownloadData extends AsyncTask<String, Integer, String> {
 
                 JSONObject dataO = dataJsonArray.getJSONObject(i);
 
-                dbHelper.insertData(dataO.optString(ConstantsGlobal.TABLE_COLUMN_BN_NAME,""),
+                dbHelper.insertData(dataO.optString(ConstantsGlobal.TABLE_COLUMN_MAIN_TYPE_DATA,""),
+                        dataO.optString(ConstantsGlobal.TABLE_COLUMN_BN_NAME,""),
                         dataO.optString(ConstantsGlobal.TABLE_COLUMN_BN_GUID,""),
                         dataO.optString(ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME,""),
                         dataO.optString(ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID,""),

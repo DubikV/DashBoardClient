@@ -32,6 +32,7 @@ public class ConstantsGlobal {
     public static final String DATABASE_NAME = "dataB.db";
     public static final String TABLE_NAME = "dataTable";
     public static final String TABLE_COLUMN_ID = "id";
+    public static final String TABLE_COLUMN_MAIN_TYPE_DATA = "mainTypeData";
     public static final String TABLE_COLUMN_BN_NAME = "bnName";
     public static final String TABLE_COLUMN_BN_GUID = "bnGuid";
     public static final String TABLE_COLUMN_BRANCH_NAME = "branchName";

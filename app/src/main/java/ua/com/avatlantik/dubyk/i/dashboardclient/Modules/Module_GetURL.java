@@ -56,20 +56,20 @@ public class Module_GetURL {
 
         if(bn!=null){
            if (!bn.isEmpty()) {
-               textURL = textURL + "," + "," + ConstantsGlobal.TABLE_COLUMN_BN_GUID + "=" +
+               textURL = textURL + "&" + ConstantsGlobal.TABLE_COLUMN_BN_GUID + "=" +
                        getGuidElementByName(bn, ConstantsGlobal.TABLE_COLUMN_BN_NAME, ConstantsGlobal.TABLE_COLUMN_BN_GUID);
            }
         }
         if(brunch!=null){
             if (!brunch.isEmpty()){
-            textURL = textURL +","+ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID+"="+
-                    getGuidElementByName(brunch,ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME, ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID);
+               textURL = textURL + "&" + ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID+"="+
+                       getGuidElementByName(brunch,ConstantsGlobal.TABLE_COLUMN_BRANCH_NAME, ConstantsGlobal.TABLE_COLUMN_BRANCH_GUID);
             }
         }
 
         if(manager!=null){
             if (!manager.isEmpty()){
-            textURL = textURL +","+ConstantsGlobal.TABLE_COLUMN_MANAGER_GUID+"="+
+            textURL = textURL + "&" + ConstantsGlobal.TABLE_COLUMN_MANAGER_GUID+"="+
                     getGuidElementByName(manager,ConstantsGlobal.TABLE_COLUMN_MANAGER_NAME, ConstantsGlobal.TABLE_COLUMN_MANAGER_GUID);
             }
         }
@@ -77,29 +77,29 @@ public class Module_GetURL {
         if(period!=null){
             if (!period.isEmpty()){
                if(period.equals("Січень")){
-                   textURL = textURL +",period=1";
+                   textURL = textURL +"&period=1";
                }else if(period.equals("Лютий")){
-                   textURL = textURL +",period=2";
+                   textURL = textURL +"&period=2";
                }else if(period.equals("Березень")){
-                   textURL = textURL +",period=3";
+                   textURL = textURL +"&period=3";
                }else if(period.equals("Квітень")){
-                   textURL = textURL +",period=4";
+                   textURL = textURL +"&period=4";
                }else if(period.equals("Травень")){
-                   textURL = textURL +",period=5";
+                   textURL = textURL +"&period=5";
                }else if(period.equals("Червень")){
-                   textURL = textURL +",period=6";
+                   textURL = textURL +"&period=6";
                }else if(period.equals("Липень")){
-                   textURL = textURL +",period=7";
+                   textURL = textURL +"&period=7";
                }else if(period.equals("Серпень")){
-                   textURL = textURL +",period=8";
+                   textURL = textURL +"&period=8";
                }else if(period.equals("Вересень")){
-                   textURL = textURL +",period=9";
+                   textURL = textURL +"&period=9";
                }else if(period.equals("Жовтень")){
-                   textURL = textURL +",period=10";
+                   textURL = textURL +"&period=10";
                }else if(period.equals("Листопад")){
-                   textURL = textURL +",period=11";
+                   textURL = textURL +"&period=11";
                }else if(period.equals("Грудень")){
-                   textURL = textURL +",period=12";
+                   textURL = textURL +"&period=12";
                }
             }
         }

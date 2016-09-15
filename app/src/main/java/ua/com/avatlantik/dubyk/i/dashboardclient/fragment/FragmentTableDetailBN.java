@@ -29,7 +29,8 @@ public class FragmentTableDetailBN extends Fragment {
     private FragmentManager mFragmentManager;
     private ArrayList<Data_tableDetail_cap> listCap = new ArrayList<>();
     private String parameter_bn, parameter_period, typeData;
-    private Button button_data, button_s_table_datail;
+    private Button button_data, button_s_table_datail, button_p_table_datail,
+                                button_q_table_datail;
 
 
     public static FragmentTableDetailBN getInstance() {
@@ -47,9 +48,9 @@ public class FragmentTableDetailBN extends Fragment {
 
         mFragmentManager = getActivity().getSupportFragmentManager();
 
-        initElementsForm();
-
         initCap();
+
+        initElementsForm();
 
         initData();
 
@@ -58,25 +59,61 @@ public class FragmentTableDetailBN extends Fragment {
 
 
     private void initElementsForm() {
-        button_data = (Button)view.findViewById(R.id.button_data);
-        button_data.setText(getString(R.string.brunch_name_bunch));
-        button_data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-            }
-        });
-
         button_s_table_datail = (Button)view.findViewById(R.id.button_s_table_datail);
         button_s_table_datail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 FragmentSmallGraph fragmentSmallGraph = new FragmentSmallGraph();
+                fragmentSmallGraph.setListCap(listCap);
                 FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                 xfragmentTransaction.replace(R.id.containerView, fragmentSmallGraph);
+                xfragmentTransaction.addToBackStack(this.getClass().getName());
+                xfragmentTransaction.commit();
+
+            }
+        });
+
+        button_p_table_datail = (Button)view.findViewById(R.id.button_p_table_datail);
+        button_p_table_datail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentSmallGraph fragmentSmallGraph = new FragmentSmallGraph();
+                fragmentSmallGraph.setListCap(listCap);
+                FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                xfragmentTransaction.replace(R.id.containerView, fragmentSmallGraph);
+                xfragmentTransaction.addToBackStack(this.getClass().getName());
+                xfragmentTransaction.commit();
+
+            }
+        });
+
+        button_q_table_datail = (Button)view.findViewById(R.id.button_q_table_datail);
+        button_q_table_datail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentSmallGraph fragmentSmallGraph = new FragmentSmallGraph();
+                fragmentSmallGraph.setListCap(listCap);
+                FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                xfragmentTransaction.replace(R.id.containerView, fragmentSmallGraph);
+                xfragmentTransaction.addToBackStack(this.getClass().getName());
+                xfragmentTransaction.commit();
+
+            }
+        });
+
+        button_data = (Button)view.findViewById(R.id.button_data);
+        button_data.setText(getString(R.string.brunch_name_bunch));
+        button_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTableBranch fragmentTableBranch = new FragmentTableBranch();
+                fragmentTableBranch.setListCap(listCap);
+                FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                xfragmentTransaction.replace(R.id.containerView, fragmentTableBranch);
                 xfragmentTransaction.addToBackStack(this.getClass().getName());
                 xfragmentTransaction.commit();
 
@@ -88,7 +125,7 @@ public class FragmentTableDetailBN extends Fragment {
 
     private void initCap() {
 
-        ArrayList<Data_tableDetail_cap> listCap = new ArrayList<>();
+        listCap.clear();
 
         if(parameter_bn!=null){
             listCap.add(new Data_tableDetail_cap("Бізнес напрямок : ", parameter_bn));
