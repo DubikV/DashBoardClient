@@ -8,19 +8,19 @@
             android:title="@string/nav_comparion_12_3_ua" />
         <item
             android:id="@+id/nav_comparion_3_1"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_chart_bar"
             android:title="@string/nav_comparion_3_1_ua" />
         <item
             android:id="@+id/nav_comparion_1_exp"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_chart_line"
             android:title="@string/nav_comparion_1_exp_ua" />
         <item
             android:id="@+id/nav_comparion_12_exp"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_chart_areaspline"
             android:title="@string/nav_comparion_12_exp_ua"/>
         <item
             android:id="@+id/nav_comparion_1_exp_dec"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_chart_areaspline"
             android:title="@string/nav_comparion_1_exp_dec_ua" />
     </group>
 

@@ -8,15 +8,18 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import ua.com.avatlantik.dubyk.i.dashboardclient.Constants.ConstantsGlobal;
+import ua.com.avatlantik.dubyk.i.dashboardclient.Data.Data_table;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Data.Data_tableDetail_cap;
 import ua.com.avatlantik.dubyk.i.dashboardclient.Database.DBHelper;
 import ua.com.avatlantik.dubyk.i.dashboardclient.R;
+import ua.com.avatlantik.dubyk.i.dashboardclient.adapter.TableDataAdapter;
 import ua.com.avatlantik.dubyk.i.dashboardclient.adapter.TableDetailCapAdapter;
 
 /**
@@ -27,6 +30,7 @@ public class FragmentTableBranch extends Fragment {
     private View view;
     private FragmentManager mFragmentManager;
     private ArrayList<Data_tableDetail_cap> listCap = new ArrayList<>();
+    private ArrayList<Data_table> listData = new ArrayList<>();
     private String parameter_bn, parameter_period, typeData;
     private Button button_table_data, button_table_back;
 
@@ -57,16 +61,6 @@ public class FragmentTableBranch extends Fragment {
 
 
     private void initElementsForm() {
-        button_table_data = (Button)view.findViewById(R.id.button_table_data);
-        button_table_data.setText(getString(R.string.manager_name_bunch));
-        button_table_data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-            }
-        });
 
         button_table_back = (Button)view.findViewById(R.id.button_table_back);
         button_table_back.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +79,22 @@ public class FragmentTableBranch extends Fragment {
         ListView listView = (ListView)view.findViewById(R.id.table_detail_cap_listView);
         TableDetailCapAdapter adapter = new TableDetailCapAdapter(getActivity(), listCap);
         listView.setAdapter(adapter);
+
+        listData.add(new Data_table("Депропетровская филия", 23.9,4324,234));
+        listData.add(new Data_table("Киевская филия", 4543,987,123));
+        listData.add(new Data_table("Николаевская филия", 98,234,23));
+
+        ListView table_data_listView = (ListView)view.findViewById(R.id.table_data_listView);
+        TableDataAdapter adapterData = new TableDataAdapter(getActivity(), listData);
+        table_data_listView.setAdapter(adapterData);
+
+        table_data_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+            }
+        });
+
+
     }
 
     private void initData() {

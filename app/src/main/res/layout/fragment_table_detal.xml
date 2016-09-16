@@ -4,12 +4,27 @@
     android:layout_height="match_parent"
     android:background="@drawable/shape">
 
-    <ListView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/table_detail_cap_listView"
         android:layout_weight="5"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp" >
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/table_detail_cap_listView"
+            android:layout_weight="1" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button_data"
+            android:layout_weight="6"
+            android:background="@drawable/shape_detail_table_corn"/>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -192,17 +207,16 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:layout_marginLeft="5dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:text="@string/graph_name"
                     android:id="@+id/button_s_table_datail"
                     android:textSize="10sp"
                     android:layout_weight="1"
-                    android:background="@drawable/shape_detail_table_corn" />
+                    android:background="@drawable/shape_graph_line" />
             </LinearLayout>
 
         </LinearLayout>
@@ -419,17 +433,16 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:layout_marginLeft="5dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:text="@string/graph_name"
                     android:id="@+id/button_q_table_datail"
                     android:textSize="10sp"
                     android:layout_weight="1"
-                    android:background="@drawable/shape_detail_table_corn" />
+                    android:background="@drawable/shape_graph_line" />
             </LinearLayout>
 
         </LinearLayout>
@@ -647,17 +660,16 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:layout_marginLeft="5dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:text="@string/graph_name"
                     android:id="@+id/button_p_table_datail"
                     android:textSize="10sp"
                     android:layout_weight="1"
-                    android:background="@drawable/shape_detail_table_corn" />
+                    android:background="@drawable/shape_graph_line" />
             </LinearLayout>
 
         </LinearLayout>
@@ -667,35 +679,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.8">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"></LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="2">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"></LinearLayout>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/button_data"
-                    android:background="@drawable/shape_detail_table_corn"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="1.5" />
-            </LinearLayout>
 
         </LinearLayout>
 

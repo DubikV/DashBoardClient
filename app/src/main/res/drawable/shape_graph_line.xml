@@ -18,10 +18,11 @@
     </shape>
 </item>
 
-<item android:top="10dp"
-      android:bottom="10dp"
-
-      android:drawable="@drawable/ic_chevron_left" />
+<item android:top="20dp"
+      android:bottom="20dp"
+      android:right="5dp"
+      android:left="5dp"
+      android:drawable="@drawable/ic_chart_line" />
 
 </layer-list>
 

@@ -13,4 +13,7 @@
 <item name="ic_menu_download_data" type="drawable">@mipmap/ic_download</item>
 <item name="ic_menu_graph" type="drawable">@mipmap/ic_chart_histogram</item>
 <item name="ic_chevron_left" type="drawable">@mipmap/ic_chevron_left</item>
+<item name="ic_chart_line" type="drawable">@mipmap/ic_chart_line</item>
+<item name="ic_chart_bar" type="drawable">@mipmap/ic_chart_bar</item>
+<item name="ic_chart_areaspline" type="drawable">@mipmap/ic_chart_areaspline</item>
 </resources>

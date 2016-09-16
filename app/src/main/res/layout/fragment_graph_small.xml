@@ -11,15 +11,14 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="6"
+        android:layout_weight="5"
         android:layout_margin="5dp">
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/table_detail_cap_listView"
-            android:layout_weight="1"
-            android:layout_margin="5dp" />
+            android:layout_weight="1" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
